@@ -1,3 +1,4 @@
+var ngrok = require('ngrok');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
@@ -83,6 +84,13 @@ gulp.task('browser-sync', function() {
             baseDir: "./dist/"
         },
         reloadDelay: 500
+    },function(err,bs){
+      if(err){
+        console.log(err);
+      }
+      ngrok.connect(bs.options.get('port'), function (err, url) {
+        console.log("[NGROK] Ngrok URL: "+url);
+      });
     });
 });
 
