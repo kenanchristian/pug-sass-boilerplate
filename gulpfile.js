@@ -68,7 +68,10 @@ gulp.task('script', function () {
     .pipe(gulp.dest('./dist/assets/js/'))
 });
 
-gulp.task('script-watch',['script'], browserSync.reload);
+gulp.task('script-watch',['script'], function(){
+  browserSync.reload();
+  return;
+});
 
 //SCRIPTS
 gulp.task('script-prod', function () {
