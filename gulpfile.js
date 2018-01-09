@@ -54,7 +54,7 @@ gulp.task('style-prod',function(){
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
-        outputStyle:compressed
+        outputStyle: 'compressed'
     }))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer())
